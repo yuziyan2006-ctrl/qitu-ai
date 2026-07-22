@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="theme-color" content="#30294b" />
+    <title>数据管理｜启途 AI</title>
+    <link rel="icon" href="app-icon.svg" />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      body{min-height:100vh;background:radial-gradient(circle at 80% 0,#ded5fb,transparent 35%),#f7f5fb}.admin-nav{height:76px;padding:0 clamp(20px,7vw,100px);display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,.8);border-bottom:1px solid #e4dfea;backdrop-filter:blur(12px)}.admin-back{font-size:12px;font-weight:700;color:#6544cf}.admin-main{width:min(1000px,calc(100% - 40px));margin:0 auto;padding:75px 0 110px}.admin-heading{max-width:650px}.admin-eyebrow{color:#6544cf;font-size:11px;font-weight:800;letter-spacing:.14em}.admin-heading h1{margin:15px 0 15px;font-size:clamp(38px,6vw,62px);letter-spacing:-.055em}.admin-heading p{color:#716b79;line-height:1.8}.admin-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:22px;margin-top:45px}.admin-card{padding:32px;border:1px solid #e1dce8;border-radius:22px;background:#fff;box-shadow:0 20px 55px rgba(48,38,74,.07)}.admin-card h2{margin:0 0 9px;font-size:21px}.admin-card>p{margin:0;color:#8a8590;font-size:12px;line-height:1.7}.admin-form{margin-top:28px}.field-label{display:block;margin-bottom:8px;font-size:11px;font-weight:700}.password-wrap{display:flex;border:1px solid #dcd6e5;border-radius:12px;overflow:hidden;transition:.2s}.password-wrap:focus-within{border-color:#7658d8;box-shadow:0 0 0 4px rgba(101,68,207,.1)}.password-wrap input{height:49px;min-width:0;flex:1;padding:0 15px;border:0;outline:0;font-size:16px;letter-spacing:.15em}.password-wrap button{width:64px;border:0;background:#f5f2fa;color:#6f687b;font-size:11px;cursor:pointer}.format-row{display:flex;gap:10px;margin-top:19px}.format-option{flex:1;position:relative}.format-option input{position:absolute;opacity:0}.format-option span{min-height:57px;padding:11px 13px;display:flex;flex-direction:column;justify-content:center;border:1px solid #ded9e5;border-radius:11px;cursor:pointer;transition:.2s}.format-option strong{font-size:12px}.format-option small{margin-top:2px;color:#aaa4b0;font-size:9px}.format-option input:checked+span{border-color:#7658d8;background:#f2edff;color:#583ab8}.export-button{width:100%;margin-top:19px}.export-button:disabled{opacity:.55;cursor:wait;transform:none}.admin-status{display:none;margin-top:16px;padding:12px 14px;border-radius:10px;background:#edf8f5;color:#2c776e;font-size:11px;line-height:1.6}.admin-status.show{display:block}.admin-status.error{background:#fff0ed;color:#a95748}.security-list{list-style:none;padding:0;margin:23px 0 0}.security-list li{padding:14px 0 14px 27px;position:relative;border-top:1px solid #eeeaf2;color:#66606e;font-size:11px;line-height:1.6}.security-list li:before{content:"✓";position:absolute;left:0;color:#35a493;font-weight:800}.setup-note{margin-top:18px!important;padding:14px;border-radius:10px;background:#fff6dd;color:#766038!important}.setup-note code{font-family:monospace;font-size:10px}.admin-footer{text-align:center;color:#aaa4b0;font-size:10px}@media(max-width:760px){.admin-main{padding-top:50px}.admin-grid{grid-template-columns:1fr}.admin-card{padding:24px}}
+    </style>
+  </head>
+  <body>
+    <nav class="admin-nav">
+      <a class="brand" href="./"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 44 44"><path d="M8 31.5c6.2 0 6.7-18.8 13.5-18.8S28.7 31.5 36 31.5" /><circle cx="8" cy="31.5" r="3.2" /><circle cx="21.5" cy="12.8" r="3.2" /><circle cx="36" cy="31.5" r="3.2" /></svg></span><span>启途<span class="brand-latin">ADMIN</span></span></a>
+      <a class="admin-back" href="./">返回网站 →</a>
+    </nav>
+    <main class="admin-main">
+      <header class="admin-heading"><span class="admin-eyebrow">PRIVATE DATA CONSOLE</span><h1>匿名答题数据导出</h1><p>管理员密码只发送到同域服务端函数进行校验，不会写入浏览器存储或前端源码。数据库服务密钥同样只存在于托管平台的加密环境变量中。</p></header>
+      <div class="admin-grid">
+        <section class="admin-card">
+          <h2>生成数据文件</h2><p>单次最多导出最近 10,000 条记录；更多数据请在 Supabase 后台分批导出。</p>
+          <form class="admin-form" id="export-form">
+            <label class="field-label" for="admin-password">管理员密码</label>
+            <div class="password-wrap"><input id="admin-password" type="password" autocomplete="current-password" required maxlength="128" placeholder="输入服务端配置的密码" /><button type="button" id="toggle-password">显示</button></div>
+            <div class="format-row" role="radiogroup" aria-label="导出格式">
+              <label class="format-option"><input type="radio" name="format" value="csv" checked /><span><strong>CSV 表格</strong><small>适合 Excel / SPSS</small></span></label>
+              <label class="format-option"><input type="radio" name="format" value="json" /><span><strong>JSON 原始数据</strong><small>适合程序分析</small></span></label>
+            </div>
+            <button class="primary-button export-button" id="export-button" type="submit">验证密码并导出 <span>↓</span></button>
+            <div class="admin-status" id="admin-status" role="status" aria-live="polite"></div>
+          </form>
+        </section>
+        <aside class="admin-card">
+          <h2>安全边界</h2><p>管理员页面可以公开存在，真正的数据权限由服务端接口控制。</p>
+          <ul class="security-list"><li>连续失败 5 次后，同一来源暂停 15 分钟。</li><li>CSV 自动防护 Excel 公式注入。</li><li>数据库开启 RLS，匿名密钥无读取权限。</li><li>导出接口禁止缓存，密码不在客户端保存。</li></ul>
+          <p class="setup-note">请在部署平台设置 <code>ADMIN_PASSWORD</code>。前端不会显示当前密码；公开上线推荐至少 12 位随机密码。</p>
+        </aside>
+      </div>
+    </main>
+    <footer class="admin-footer">启途 AI 数据管理 · 请勿在公共设备保存导出文件</footer>
+    <script>
+      const form = document.querySelector("#export-form");
+      const passwordInput = document.querySelector("#admin-password");
+      const toggleButton = document.querySelector("#toggle-password");
+      const exportButton = document.querySelector("#export-button");
+      const statusBox = document.querySelector("#admin-status");
+      toggleButton.addEventListener("click", () => { const visible = passwordInput.type === "text"; passwordInput.type = visible ? "password" : "text"; toggleButton.textContent = visible ? "显示" : "隐藏"; });
+      form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        const format = new FormData(form).get("format");
+        exportButton.disabled = true; exportButton.textContent = "正在验证并生成文件..."; statusBox.className = "admin-status";
+        try {
+          const endpoint = new URL("api/admin-export", new URL("./", location.href));
+          const response = await fetch(endpoint, { method: "POST", headers: { "Content-Type": "application/json" }, cache: "no-store", body: JSON.stringify({ password: passwordInput.value, format }) });
+          if (!response.ok) { const detail = await response.json().catch(() => ({})); throw new Error(detail.error || `导出失败（${response.status}）`); }
+          const blob = await response.blob();
+          const disposition = response.headers.get("content-disposition") || "";
+          const filename = disposition.match(/filename="([^"]+)"/)?.[1] || `qitu-responses.${format}`;
+          const link = document.createElement("a"); link.href = URL.createObjectURL(blob); link.download = filename; document.body.appendChild(link); link.click(); link.remove(); setTimeout(() => URL.revokeObjectURL(link.href), 1000);
+          const count = response.headers.get("x-export-count") || "未知"; const total = response.headers.get("x-export-total") || count; const truncated = response.headers.get("x-export-truncated") === "true";
+          statusBox.textContent = `导出成功：本次 ${count} 条，共 ${total} 条${truncated ? "。数据超过单次上限，请在 Supabase 后台继续导出。" : "。"}`; statusBox.className = "admin-status show"; passwordInput.value = "";
+        } catch (error) { statusBox.textContent = error.message || "导出失败，请检查部署配置。"; statusBox.className = "admin-status show error"; }
+        finally { exportButton.disabled = false; exportButton.innerHTML = "验证密码并导出 <span>↓</span>"; }
+      });
+    </script>
+  </body>
+</html>
