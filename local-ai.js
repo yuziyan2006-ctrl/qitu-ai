@@ -1,4 +1,4 @@
-const TRANSFORMERS_MODULE = "./transformers.min.js";
+const TRANSFORMERS_MODULE = "https://cdn.jsdelivr.net/npm/@xenova/transformers@2.17.2/dist/transformers.min.js";
 const MODEL_ID = "onnx-community/Qwen2.5-0.5B-Instruct";
 
 let generatorPromise = null;
