@@ -1,24 +1,20 @@
-const CACHE_VERSION = "qitu-ai-shell-v3";
+const CACHE_VERSION = "qitu-ai-shell-v4";
 const APP_SHELL = [
   "./",
   "./index.html",
   "./styles.css",
   "./app.js",
   "./local-ai.js",
-  "./transformers.min.js",
-  "./ort-wasm-simd-threaded.jsep.mjs",
   "./manifest.webmanifest",
   "./app-icon.svg",
   "./share-card.png",
   "./privacy.html",
   "./admin.html"
 ];
-
 self.addEventListener("install", (event) => {
   event.waitUntil(caches.open(CACHE_VERSION).then((cache) => cache.addAll(APP_SHELL)));
   self.skipWaiting();
 });
-
 self.addEventListener("activate", (event) => {
   event.waitUntil(
     caches.keys()
@@ -26,7 +22,6 @@ self.addEventListener("activate", (event) => {
       .then(() => self.clients.claim())
   );
 });
-
 self.addEventListener("fetch", (event) => {
   const request = event.request;
   if (request.method !== "GET") return;
@@ -36,7 +31,6 @@ self.addEventListener("fetch", (event) => {
     event.respondWith(fetch(request));
     return;
   }
-
   if (request.mode === "navigate") {
     event.respondWith(
       fetch(request)
@@ -49,7 +43,6 @@ self.addEventListener("fetch", (event) => {
     );
     return;
   }
-
   event.respondWith(
     caches.match(request).then((cached) => cached || fetch(request).then((response) => {
       if (response.ok) {
