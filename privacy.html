@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#6544cf" />
+    <title>隐私与本地 AI 说明｜启途 AI</title>
+    <link rel="icon" href="app-icon.svg" />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      body{background:#f8f7f4}.policy-nav{height:76px;padding:0 clamp(20px,7vw,100px);display:flex;align-items:center;justify-content:space-between;background:#fff;border-bottom:1px solid #ebe7ef}.policy-back{color:#6544cf;font-size:13px;font-weight:700}.policy-main{width:min(820px,calc(100% - 40px));margin:0 auto;padding:80px 0 110px}.policy-main h1{font-size:clamp(38px,6vw,62px);letter-spacing:-.05em;margin:16px 0}.policy-lede{font-size:17px;color:#6e7481;line-height:1.8}.policy-meta{display:inline-flex;padding:7px 12px;border-radius:999px;background:#eee9ff;color:#6544cf;font-size:10px;font-weight:700}.policy-card{margin-top:24px;padding:30px;border:1px solid #e4e0e8;border-radius:18px;background:#fff}.policy-card h2{font-size:21px;margin:0 0 12px}.policy-card p,.policy-card li{color:#66616e;font-size:13px;line-height:1.9}.policy-card ul{padding-left:20px}.policy-card a{color:#6544cf;text-decoration:underline}.policy-note{padding:18px 20px;border-radius:12px;background:#fff6dc;color:#665536!important}.privacy-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.privacy-actions button{min-height:40px;padding:0 14px;border:1px solid #d9d3e2;border-radius:9px;background:#fff;color:#5f5868;font-size:11px;font-weight:700;cursor:pointer}.privacy-actions button.primary{border-color:#6544cf;background:#6544cf;color:#fff}.privacy-status{display:none;margin-top:14px;padding:12px 14px;border-radius:10px;background:#eef8f5;color:#2f786f;font-size:11px;line-height:1.6}.privacy-status.show{display:block}.privacy-status.error{background:#fff0ed;color:#a95849}.policy-footer{padding:35px;text-align:center;background:#eeeaf4;color:#898390;font-size:11px}@media(max-width:620px){.policy-main{padding-top:55px}.policy-card{padding:23px}.privacy-actions{flex-direction:column}.privacy-actions button{width:100%}}
+    </style>
+  </head>
+  <body>
+    <nav class="policy-nav">
+      <a class="brand" href="./"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 44 44"><path d="M8 31.5c6.2 0 6.7-18.8 13.5-18.8S28.7 31.5 36 31.5" /><circle cx="8" cy="31.5" r="3.2" /><circle cx="21.5" cy="12.8" r="3.2" /><circle cx="36" cy="31.5" r="3.2" /></svg></span><span>启途<span class="brand-latin">AI PRO</span></span></a>
+      <a class="policy-back" href="./">返回测评 →</a>
+    </nav>
+    <main class="policy-main">
+      <span class="policy-meta">最后更新：2026 年 7 月 23 日</span>
+      <h1>隐私与本地 AI 说明</h1>
+      <p class="policy-lede">启途不设用户账号，也不要求姓名、手机号或邮箱。只有在你明确选择“同意并开始”后，网站才会匿名保存答题数据；你也可以选择仅在本地作答。</p>
+
+      <section class="policy-card">
+        <h2>我们保存什么</h2>
+        <p><strong>设备内：</strong>当前进度、84 道答案、本地 AI 开关、数据收集选择和匿名删除凭证保存在 Local Storage，用于恢复进度及行使删除权。</p>
+        <p><strong>同意提交后：</strong>84 个 1–7 级选项、六维分数、职业原型、是否启用本地 AI、完成用时、来源标记和随机会话 ID 会通过同域服务端函数写入 Supabase 数据库。我们不主动收集姓名、手机号、邮箱、精确位置或通讯录。</p>
+        <p>数据用于分析题目质量、结果分布和改善产品，建议运营者最长保留 12 个月并定期清理。托管平台和数据库服务商可能按照其安全日志政策处理 IP、访问时间等技术信息。</p>
+      </section>
+      <section class="policy-card">
+        <h2>我们不会做什么</h2>
+        <ul><li>不会把答案出售或用于第三方广告画像。</li><li>不会公开单条答题记录或个人结果。</li><li>不会把测评结果用于招聘筛选、心理诊断或自动化重大决策。</li><li>不会因为你选择仅本地作答而减少测评功能。</li></ul>
+      </section>
+      <section class="policy-card" id="choices">
+        <h2>撤回同意与删除</h2>
+        <p>你可以随时把后续测评改为“仅本地作答”。若当前浏览器仍保留匿名删除凭证，也可以请求删除此前从该浏览器提交的记录。删除凭证只保存在你的设备上，服务器仅保存其 SHA-256 哈希。</p>
+        <div class="privacy-actions"><button type="button" id="choose-local">后续仅本地作答</button><button type="button" id="choose-submit">允许后续匿名提交</button><button type="button" class="primary" id="delete-submissions">撤回并删除已提交记录</button></div>
+        <div class="privacy-status" id="privacy-status" role="status" aria-live="polite"></div>
+      </section>
+      <section class="policy-card" id="ai">
+        <h2>本地开源 AI 如何工作</h2>
+        <p>当你开启 AI 深度推荐，浏览器会从公开 CDN 下载 Transformers.js 和 q4 量化的 Qwen2.5-0.5B-Instruct 模型。模型通过 WebGPU 在当前设备运行，作答摘要不会发送给远程推理 API。首次模型下载约 800MB，之后通常由浏览器缓存。</p>
+        <p>第三方 CDN 和模型托管方仍可能像普通静态资源服务器一样获得 IP 地址、浏览器类型和下载时间等网络日志，但它们不会收到本页面生成的提示词或作答内容。模型来源：<a href="https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct" target="_blank" rel="noopener noreferrer">Qwen2.5-0.5B-Instruct</a>，许可为 Apache-2.0。</p>
+      </section>
+      <section class="policy-card">
+        <h2>外部资源与分享</h2>
+        <p>页面可能加载 Google Fonts、jsDelivr 和 Hugging Face 的公开资源。点击“分享”时，网站会调用系统分享面板；若系统不支持，则只把分享文案和当前公开网址写入剪贴板。</p>
+      </section>
+      <section class="policy-card">
+        <h2>结果的适用边界</h2>
+        <p class="policy-note">测评反映当下的自我报告与职业偏好，不代表能力上限，也不保证任何职业结果。请用访谈、体验项目和真实反馈继续验证。</p>
+      </section>
+    </main>
+    <footer class="policy-footer">© 2026 QITU · 让职业探索更清楚，也更尊重隐私。</footer>
+    <script>
+      const choiceKey = "qitu-data-collection-choice-v1";
+      const receiptsKey = "qitu-submission-receipts-v1";
+      const pendingKey = "qitu-pending-submissions-v1";
+      const statusBox = document.querySelector("#privacy-status");
+      const showStatus = (message, error = false) => { statusBox.textContent = message; statusBox.className = `privacy-status show${error ? " error" : ""}`; };
+      document.querySelector("#choose-local").addEventListener("click", () => { localStorage.setItem(choiceKey, "local"); showStatus("已设置：后续测评仅保存在当前浏览器，不再匿名提交。"); });
+      document.querySelector("#choose-submit").addEventListener("click", () => { localStorage.setItem(choiceKey, "submit"); showStatus("已设置：完成后匿名提交答题数据。你仍可随时撤回。"); });
+      document.querySelector("#delete-submissions").addEventListener("click", async (event) => {
+        const button = event.currentTarget;
+        let receipts = [];
+        try { receipts = JSON.parse(localStorage.getItem(receiptsKey) || "[]"); } catch (_) { receipts = []; }
+        if (!Array.isArray(receipts) || !receipts.length) { localStorage.setItem(choiceKey, "local"); showStatus("当前浏览器没有可用的已提交记录删除凭证；已将后续测评改为仅本地作答。"); return; }
+        button.disabled = true; button.textContent = "正在提交删除请求...";
+        try {
+          const endpoint = new URL("api/delete", new URL("./", location.href));
+          const response = await fetch(endpoint, { method: "POST", headers: { "Content-Type": "application/json" }, cache: "no-store", body: JSON.stringify({ receipts }) });
+          const detail = await response.json().catch(() => ({}));
+          if (!response.ok) throw new Error(detail.error || `删除失败（${response.status}）`);
+          localStorage.removeItem(receiptsKey); localStorage.removeItem(pendingKey); localStorage.setItem(choiceKey, "local");
+          showStatus(`删除请求已完成，数据库删除 ${detail.deleted ?? 0} 条记录；后续测评已改为仅本地作答。`);
+        } catch (error) { showStatus(`${error.message || "删除失败"}。本地凭证仍然保留，请稍后重试。`, true); }
+        finally { button.disabled = false; button.textContent = "撤回并删除已提交记录"; }
+      });
+    </script>
+  </body>
+</html>
