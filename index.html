@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="启途 AI 专业版通过 84 道职业情境题与浏览器端开源 AI，生成具体、可验证的职业方向建议。"
+    />
+    <meta name="theme-color" content="#6846d6" />
+    <meta name="robots" content="index, follow" />
+    <meta name="color-scheme" content="light" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="zh_CN" />
+    <meta property="og:site_name" content="启途 AI" />
+    <meta property="og:title" content="启途 AI｜84 题职业规划测评" />
+    <meta property="og:description" content="用 84 道工作情境题看见职业驱动力，再由本地开源 AI 生成具体职业建议。" />
+    <meta property="og:image" content="share-card.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="启途 AI｜84 题职业规划测评" />
+    <meta name="twitter:description" content="不是给你贴标签，而是把职业方向变成可理解、可验证的下一步。" />
+    <meta name="twitter:image" content="share-card.png" />
+    <title>启途 AI 专业版｜84 题职业规划测评</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%236544cf'/%3E%3Cpath d='M14 45c9 0 10-27 20-27s10 27 20 27' fill='none' stroke='white' stroke-width='4' stroke-linecap='round'/%3E%3Ccircle cx='14' cy='45' r='4' fill='%23f3c553'/%3E%3Ccircle cx='34' cy='18' r='4' fill='%23f3c553'/%3E%3Ccircle cx='54' cy='45' r='4' fill='%23f3c553'/%3E%3C/svg%3E" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;600;700&family=Noto+Sans+SC:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <script type="application/ld+json">
+      {"@context":"https://schema.org","@type":"WebApplication","name":"启途 AI 职业规划测评","applicationCategory":"LifestyleApplication","operatingSystem":"Any","isAccessibleForFree":true,"description":"通过 84 道原创职业情境题与浏览器端开源 AI，生成职业倾向报告和可验证的职业建议。"}
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">跳到主要内容</a>
+
+    <header class="site-header" id="site-header">
+      <a class="brand" href="#" aria-label="启途首页" data-action="home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 44 44">
+            <path d="M8 31.5c6.2 0 6.7-18.8 13.5-18.8S28.7 31.5 36 31.5" />
+            <circle cx="8" cy="31.5" r="3.2" />
+            <circle cx="21.5" cy="12.8" r="3.2" />
+            <circle cx="36" cy="31.5" r="3.2" />
+          </svg>
+        </span>
+        <span>启途<span class="brand-latin">AI PRO</span></span>
+      </a>
+      <nav class="main-nav" aria-label="主要导航">
+        <a href="#how-it-works">测评方法</a>
+        <a href="#dimensions">能力维度</a>
+        <a href="#faq">常见问题</a>
+      </nav>
+      <button class="header-cta" type="button" data-action="start">开始测评</button>
+      <button class="nav-toggle" type="button" aria-label="打开菜单" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </header>
+
+    <main id="main">
+      <section class="view home-view is-active" data-view="home" aria-labelledby="hero-title">
+        <section class="hero">
+          <div class="hero-copy reveal">
+            <span class="eyebrow"><i></i> 一次温和而诚实的自我探索</span>
+            <h1 id="hero-title">找到更像你的<br /><em>职业方向</em></h1>
+            <p class="hero-lede">
+              不是给你贴标签，而是把模糊的“我适合什么”，变成可理解、可尝试、可行动的答案。
+            </p>
+            <div class="hero-actions">
+              <button class="primary-button" type="button" data-action="start">
+                免费开始测评
+                <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7 4 6 6-6 6" /></svg>
+              </button>
+              <span class="microcopy">84 道题 · 约 15 分钟 · 无需注册</span>
+            </div>
+            <label class="ai-optin-card" for="ai-opt-in">
+              <input type="checkbox" id="ai-opt-in" checked />
+              <span class="ai-switch" aria-hidden="true"><i></i></span>
+              <span>
+                <strong>完成后启用本地 AI 深度推荐</strong>
+                <small>首次约下载 800MB 模型，仅在本机运行和缓存，可随时关闭</small>
+              </span>
+            </label>
+            <div class="trust-row" aria-label="测评特点">
+              <span><svg viewBox="0 0 20 20"><path d="m4 10 4 4 8-9" /></svg>结果即时生成</span>
+              <span><svg viewBox="0 0 20 20"><path d="m4 10 4 4 8-9" /></svg>数据仅存本地</span>
+              <span><svg viewBox="0 0 20 20"><path d="m4 10 4 4 8-9" /></svg>支持打印保存</span>
+            </div>
+          </div>
+
+          <div class="hero-visual reveal" aria-label="职业方向探索插画">
+            <div class="orbit orbit-one"></div>
+            <div class="orbit orbit-two"></div>
+            <div class="compass-card">
+              <div class="compass-top">
+                <span>你的职业罗盘</span>
+                <span class="signal"><i></i><i></i><i></i></span>
+              </div>
+              <div class="compass-dial">
+                <span class="dial-label dial-label-n">创造</span>
+                <span class="dial-label dial-label-e">影响</span>
+                <span class="dial-label dial-label-s">执行</span>
+                <span class="dial-label dial-label-w">洞察</span>
+                <div class="needle"><i></i></div>
+                <div class="dial-center"></div>
+              </div>
+              <div class="compass-caption">方向不是被找到的，<strong>是被走出来的。</strong></div>
+            </div>
+            <div class="floating-card card-strength">
+              <span class="float-icon">✦</span>
+              <div><small>核心优势</small><strong>连接想法</strong></div>
+            </div>
+            <div class="floating-card card-fit">
+              <span class="float-icon teal">↗</span>
+              <div><small>环境适配</small><strong>高自主 · 强成长</strong></div>
+            </div>
+            <div class="dot-field" aria-hidden="true"></div>
+          </div>
+        </section>
+
+        <section class="social-proof reveal" aria-label="测评信息">
+          <p><strong>6</strong> 大原创职业驱动力</p>
+          <div class="proof-divider"></div>
+          <p><strong>84</strong> 道分层工作情境题</p>
+          <div class="proof-divider"></div>
+          <p><strong>0</strong> 份个人答案上传云端</p>
+        </section>
+
+        <section class="section method-section" id="how-it-works">
+          <div class="section-heading reveal">
+            <span class="eyebrow"><i></i> 我们如何帮你</span>
+            <h2>把“我不知道”拆成<br />三个清晰的问题</h2>
+            <p>从真实工作情境出发，理解你的自然倾向，而不是判断对错。</p>
+          </div>
+          <div class="method-grid">
+            <article class="method-card reveal">
+              <span class="step-number">01</span>
+              <div class="method-icon purple">
+                <svg viewBox="0 0 28 28"><path d="M7 5h14v18H7zM10 10h8M10 14h8M10 18h5" /></svg>
+              </div>
+              <h3>回应真实情境</h3>
+              <p>84 道分层情境题，没有标准答案。凭第一感受选择，结果会更贴近真实的你。</p>
+            </article>
+            <article class="method-card reveal">
+              <span class="step-number">02</span>
+              <div class="method-icon yellow">
+                <svg viewBox="0 0 28 28"><path d="M14 4v20M4 14h20M7 7l14 14M21 7 7 21" /></svg>
+              </div>
+              <h3>看见优势组合</h3>
+              <p>通过六维职业罗盘，识别你的核心驱动力、工作方式与容易被忽略的天赋。</p>
+            </article>
+            <article class="method-card reveal">
+              <span class="step-number">03</span>
+              <div class="method-icon teal">
+                <svg viewBox="0 0 28 28"><path d="M5 21 18 8M12 7h7v7M5 8h4M5 13h7M5 18h4" /></svg>
+              </div>
+              <h3>迈出下一小步</h3>
+              <p>获得职业环境、方向建议和 7 天行动清单，让答案从“听起来不错”变成可验证。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section dimensions-section" id="dimensions">
+          <div class="dimension-intro reveal">
+            <span class="eyebrow light"><i></i> 原创六维模型</span>
+            <h2>每个人，都是一组<br />独特的能力光谱</h2>
+            <p>我们不把你塞进某个盒子。结果会呈现六种职业驱动力的相对强弱，以及它们如何协同。</p>
+            <button class="text-button" type="button" data-action="start">看看我的能力光谱 <span>→</span></button>
+          </div>
+          <div class="dimension-list reveal">
+            <div class="dimension-item"><span class="dimension-symbol">✦</span><div><strong>创造力</strong><small>生成新想法与表达</small></div><b>CREATIVE</b></div>
+            <div class="dimension-item"><span class="dimension-symbol">⌁</span><div><strong>分析力</strong><small>拆解问题与发现规律</small></div><b>ANALYTICAL</b></div>
+            <div class="dimension-item"><span class="dimension-symbol">↗</span><div><strong>影响力</strong><small>推动共识与激发行动</small></div><b>INFLUENCE</b></div>
+            <div class="dimension-item"><span class="dimension-symbol">◎</span><div><strong>协作力</strong><small>理解他人与共建关系</small></div><b>COLLABORATIVE</b></div>
+            <div class="dimension-item"><span class="dimension-symbol">✓</span><div><strong>执行力</strong><small>建立秩序与兑现目标</small></div><b>EXECUTION</b></div>
+            <div class="dimension-item"><span class="dimension-symbol">△</span><div><strong>探索力</strong><small>拥抱变化与快速学习</small></div><b>EXPLORATORY</b></div>
+          </div>
+        </section>
+
+        <section class="section testimonial-section">
+          <div class="quote-mark">“</div>
+          <blockquote class="reveal">
+            它没有武断地告诉我“你应该做什么”，而是让我第一次看清：<em>什么样的工作，会让我越做越有能量。</em>
+          </blockquote>
+          <div class="quote-person reveal"><span>W</span><div><strong>王屿</strong><small>从运营转向用户研究 · 2026</small></div></div>
+        </section>
+
+        <section class="section cta-section reveal">
+          <div>
+            <span class="eyebrow light"><i></i> 准备好了吗？</span>
+            <h2>答案不在远方，<br />它就在你的选择里。</h2>
+          </div>
+          <button class="primary-button light-button" type="button" data-action="start">开启我的职业探索 <span>→</span></button>
+          <div class="cta-shape shape-one"></div><div class="cta-shape shape-two"></div>
+        </section>
+
+        <section class="section faq-section" id="faq">
+          <div class="section-heading compact reveal">
+            <span class="eyebrow"><i></i> 常见问题</span>
+            <h2>开始前，你可能想知道</h2>
+          </div>
+          <div class="faq-list">
+            <details class="reveal">
+              <summary>这是一份 MBTI 测试吗？<span>+</span></summary>
+              <p>不是。本测评借鉴了自陈量表的交互方式，但使用原创的六维职业倾向模型，更聚焦工作中的能量来源、行为偏好与环境适配。</p>
+            </details>
+            <details class="reveal">
+              <summary>结果可以直接决定我的职业吗？<span>+</span></summary>
+              <p>不建议。结果适合作为探索起点，而不是最终裁决。你可以用报告中的行动建议，通过访谈、体验项目和真实工作反馈继续验证。</p>
+            </details>
+            <details class="reveal">
+              <summary>我的答案会被上传吗？<span>+</span></summary>
+              <p>这个演示版本不会上传答案。测评进度只保存在当前浏览器的本地存储中，清除浏览器数据即可删除。</p>
+            </details>
+          </div>
+        </section>
+
+        <footer class="site-footer">
+          <a class="brand footer-brand" href="#" data-action="home">
+            <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 44 44"><path d="M8 31.5c6.2 0 6.7-18.8 13.5-18.8S28.7 31.5 36 31.5" /><circle cx="8" cy="31.5" r="3.2" /><circle cx="21.5" cy="12.8" r="3.2" /><circle cx="36" cy="31.5" r="3.2" /></svg></span>
+            <span>启途<span class="brand-latin">AI PRO</span></span>
+          </a>
+          <p>更了解自己，更从容地出发。</p>
+          <div class="footer-links"><a href="privacy.html">隐私说明</a><a href="privacy.html#ai">本地 AI 说明</a><button type="button" data-action="share">分享测评</button><a href="admin.html" rel="nofollow">数据管理</a></div>
+          <small>© 2026 QITU. 本测评仅用于自我探索，不替代专业职业咨询。</small>
+        </footer>
+      </section>
+
+      <section class="view quiz-view" data-view="quiz" aria-labelledby="question-text">
+        <div class="quiz-shell">
+          <div class="quiz-topbar">
+            <button class="icon-button exit-quiz" type="button" aria-label="退出测评" data-action="exit">
+              <svg viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18" /></svg>
+            </button>
+            <div class="quiz-progress-wrap">
+              <div class="quiz-progress-meta">
+                <span>职业倾向探索 · 专业版</span><span id="progress-label">1 / 84</span>
+              </div>
+              <div class="progress-track"><div id="progress-fill"></div></div>
+            </div>
+            <button class="icon-button" id="quiz-help" type="button" aria-label="答题提示">?</button>
+          </div>
+
+          <div class="quiz-content">
+            <span class="question-kicker" id="question-kicker">工作方式 · 01</span>
+            <h2 id="question-text"></h2>
+            <p class="question-hint">请选择最接近你真实状态的一项，不必反复权衡。</p>
+
+            <div class="answer-scale" id="answer-scale" role="radiogroup" aria-label="同意程度">
+              <span class="scale-edge edge-left">非常不符合</span>
+              <div class="scale-options"></div>
+              <span class="scale-edge edge-right">非常符合</span>
+            </div>
+            <div class="keyboard-hint"><span>1</span>—<span>7</span> 可用数字键选择</div>
+          </div>
+
+          <div class="quiz-footer">
+            <button class="back-button" id="prev-question" type="button">
+              <svg viewBox="0 0 20 20"><path d="m13 4-6 6 6 6" /></svg>上一题
+            </button>
+            <span id="save-status"><i></i>进度已自动保存</span>
+            <button class="next-button" id="next-question" type="button" disabled>下一题
+              <svg viewBox="0 0 20 20"><path d="m7 4 6 6-6 6" /></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="tip-modal" id="tip-modal" hidden>
+          <div class="modal-backdrop" data-action="close-help"></div>
+          <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="tip-title">
+            <button type="button" class="modal-close" data-action="close-help" aria-label="关闭">×</button>
+            <span class="modal-icon">☼</span>
+            <h3 id="tip-title">相信第一反应</h3>
+            <p>请根据“多数时候真实的你”作答，而不是你希望成为的样子。遇到不适用的场景，可以想象最相近的经历。</p>
+            <button class="primary-button small" type="button" data-action="close-help">知道了</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="view loading-view" data-view="loading" aria-live="polite">
+        <div class="loading-card">
+          <div class="loading-orbit"><i></i><span>✦</span></div>
+          <span class="eyebrow"><i></i> 正在绘制你的职业罗盘</span>
+          <h2 id="loading-title">连接你的选择...</h2>
+          <p id="loading-copy">正在识别你自然投入的工作方式</p>
+          <div class="loading-track"><i></i></div>
+        </div>
+      </section>
+
+      <section class="view result-view" data-view="result" aria-labelledby="result-title">
+        <div class="result-nav">
+          <a class="brand" href="#" aria-label="启途首页" data-action="home">
+            <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 44 44"><path d="M8 31.5c6.2 0 6.7-18.8 13.5-18.8S28.7 31.5 36 31.5" /><circle cx="8" cy="31.5" r="3.2" /><circle cx="21.5" cy="12.8" r="3.2" /><circle cx="36" cy="31.5" r="3.2" /></svg></span>
+            <span>启途<span class="brand-latin">AI PRO</span></span>
+          </a>
+          <div class="result-actions">
+            <button type="button" class="ghost-button share-button" data-action="share">
+              <svg viewBox="0 0 20 20"><circle cx="5" cy="10" r="2"/><circle cx="15" cy="5" r="2"/><circle cx="15" cy="15" r="2"/><path d="m7 9 6-3M7 11l6 3"/></svg>分享给朋友
+            </button>
+            <button type="button" class="ghost-button" data-action="retake">重新测评</button>
+            <button type="button" class="primary-button compact-button" data-action="print">
+              <svg viewBox="0 0 20 20"><path d="M5 7V3h10v4M5 14H3V8h14v6h-2M6 12h8v5H6z" /></svg>保存报告
+            </button>
+          </div>
+        </div>
+
+        <div class="result-hero">
+          <div class="result-hero-copy">
+            <span class="result-overline">你的核心职业原型</span>
+            <div class="type-line"><span id="result-code">AN</span><i></i><small id="result-combo">分析 × 创造</small></div>
+            <h1 id="result-title">洞察建构者</h1>
+            <p class="result-tagline" id="result-tagline">你擅长从复杂中找到规律，再把洞见变成清晰的系统。</p>
+            <div class="result-keywords" id="result-keywords"></div>
+          </div>
+          <div class="result-emblem" aria-hidden="true">
+            <div class="emblem-back"></div>
+            <div class="emblem-card">
+              <svg class="result-icon" id="result-icon" viewBox="0 0 120 120"></svg>
+              <span id="emblem-code">AN</span>
+            </div>
+            <span class="spark spark-a">✦</span><span class="spark spark-b">✧</span>
+          </div>
+        </div>
+
+        <div class="result-content">
+          <section class="result-section overview-section">
+            <div class="result-section-heading">
+              <span class="section-index">01</span>
+              <div><span>你的职业罗盘</span><h2>六种驱动力，如何组成你</h2></div>
+            </div>
+            <div class="overview-grid">
+              <div class="radar-card">
+                <div class="radar-wrap">
+                  <svg id="radar-chart" viewBox="0 0 360 330" role="img" aria-label="六维职业倾向雷达图"></svg>
+                </div>
+              </div>
+              <div class="score-list" id="score-list"></div>
+            </div>
+          </section>
+
+          <section class="result-section strength-section">
+            <div class="result-section-heading">
+              <span class="section-index">02</span>
+              <div><span>你的高光时刻</span><h2>这些事，你往往做得自然又出色</h2></div>
+            </div>
+            <div class="strength-grid" id="strength-grid"></div>
+          </section>
+
+          <section class="result-section environment-section">
+            <div class="result-section-heading">
+              <span class="section-index">03</span>
+              <div><span>环境适配</span><h2>什么样的土壤，让你长得更好</h2></div>
+            </div>
+            <div class="environment-grid">
+              <article class="environment-card good">
+                <span class="environment-label"><i>✓</i> 更能激发你</span>
+                <ul id="good-environment"></ul>
+              </article>
+              <article class="environment-card watch">
+                <span class="environment-label"><i>!</i> 需要留意</span>
+                <ul id="watch-environment"></ul>
+              </article>
+            </div>
+          </section>
+
+          <section class="result-section career-section">
+            <div class="result-section-heading">
+              <span class="section-index">04</span>
+              <div><span>职业方向参考</span><h2>值得你进一步探索的方向</h2></div>
+            </div>
+            <p class="section-note">职业名称只是入口，请优先关注工作内容与环境是否匹配你的驱动力。</p>
+            <div class="career-grid" id="career-grid"></div>
+          </section>
+
+          <section class="result-section ai-advisor-section" id="ai-advisor">
+            <div class="result-section-heading ai-heading">
+              <span class="section-index">05</span>
+              <div><span>本地开源 AI 职业顾问</span><h2>从方向，进一步走到具体职业</h2></div>
+              <span class="local-badge"><i></i> LOCAL · PRIVATE</span>
+            </div>
+            <div class="ai-advisor-shell">
+              <div class="ai-model-bar">
+                <div class="model-identity">
+                  <span class="model-mark">AI</span>
+                  <div><strong>Qwen2.5-0.5B-Instruct</strong><small>Apache-2.0 · 4-bit · WebGPU</small></div>
+                </div>
+                <div class="model-privacy"><span>✓</span>作答数据不离开此设备</div>
+              </div>
+              <div class="ai-status-panel" id="ai-status-panel">
+                <div class="ai-status-icon"><span>✦</span><i></i></div>
+                <div class="ai-status-copy">
+                  <span class="ai-status-kicker" id="ai-status-kicker">算法预选已完成</span>
+                  <h3 id="ai-status-title">正在准备你的本地 AI 分析</h3>
+                  <p id="ai-status-copy">AI 会结合 84 道作答、六维分数和候选职业画像，给出更具体的匹配理由与验证动作。</p>
+                  <div class="ai-progress" id="ai-progress"><i></i></div>
+                  <small id="ai-progress-label">等待启动</small>
+                </div>
+                <button class="primary-button ai-run-button" type="button" data-action="run-ai">开始本地 AI 分析</button>
+              </div>
+              <div class="ai-summary" id="ai-summary" hidden></div>
+              <div class="ai-career-grid" id="ai-career-grid"></div>
+              <div class="ai-footnote">
+                <span>i</span><p>首次运行需要联网下载开源模型，之后由浏览器缓存。模型可能产生不准确内容，请把建议当作职业实验的起点，而不是替你做决定。</p>
+              </div>
+            </div>
+          </section>
+
+          <section class="result-section action-section">
+            <div class="action-copy">
+              <span class="eyebrow light"><i></i> 你的 7 天微行动</span>
+              <h2>别急着做决定，<br />先去收集真实反馈。</h2>
+              <p>职业方向不是一次测试的结论，而是一连串低成本实验的结果。</p>
+            </div>
+            <div class="action-list" id="action-list"></div>
+          </section>
+
+          <section class="submission-status" id="submission-status" aria-live="polite">
+            <span class="submission-icon"><i></i></span>
+            <div><strong id="submission-title">正在准备匿名提交</strong><small id="submission-copy">只提交答题选项、维度分数与结果类型，不包含姓名、手机号或邮箱。</small></div>
+          </section>
+
+          <section class="disclaimer">
+            <span>i</span>
+            <p><strong>关于这份报告</strong>测评结果反映你此刻的自我认知与偏好，不代表能力上限，也不应用于招聘筛选、心理诊断或重大职业决策的唯一依据。</p>
+          </section>
+        </div>
+
+        <footer class="result-footer">
+          <p>你不需要一次就找到终点，只需要找到下一步。</p>
+          <button class="primary-button result-share-button" type="button" data-action="share">分享测评给朋友 <span>↗</span></button>
+          <button class="text-button" type="button" data-action="home">返回首页 <span>→</span></button>
+        </footer>
+      </section>
+    </main>
+
+    <div class="data-consent-modal" id="data-consent-modal" hidden>
+      <div class="modal-backdrop"></div>
+      <div class="consent-card" role="dialog" aria-modal="true" aria-labelledby="consent-title" aria-describedby="consent-copy">
+        <span class="consent-icon">◎</span>
+        <span class="consent-kicker">开始前的隐私选择</span>
+        <h2 id="consent-title">帮助我们改进职业测评</h2>
+        <p id="consent-copy">如果你同意，完成后会匿名提交以下数据，用于分析题目质量和职业倾向分布。选择“仅本地作答”也能正常使用全部测评功能。</p>
+        <ul class="consent-list"><li>84 道题的 1–7 级选项</li><li>六维分数、职业原型和完成用时</li><li>随机会话 ID，不收集姓名、手机、邮箱或位置</li></ul>
+        <label class="consent-check"><input id="consent-confirm" type="checkbox" /><span>我已阅读并同意<a href="privacy.html" target="_blank">隐私说明</a>，允许匿名保存上述答题数据</span></label>
+        <div class="consent-actions"><button type="button" class="ghost-button" data-action="consent-local">仅本地作答</button><button type="button" class="primary-button" data-action="consent-submit" disabled>同意并开始测评 <span>→</span></button></div>
+        <small class="consent-footnote">之后可在隐私说明页撤回同意并删除本机仍保留凭证的已提交记录。</small>
+      </div>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="app.js"></script>
+  </body>
+</html>
